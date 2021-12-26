@@ -21,7 +21,7 @@ export default new Command({
 			await replySafely(interaction, L('already-matching'))
 		} else {
 			await replySafely(interaction, L('matching'))
-			MatchQueue.join(userId, Number(interaction.options.getInteger('headcount', true)), async targetIds => {
+			MatchQueue.join(userId, Number(interaction.options.getInteger('people-count', true)), async targetIds => {
 				if (!TalkTargetManager.users.has(interaction.user.id)) TalkTargetManager.create(userId)
 				const talkTarget = TalkTargetManager.users.get(userId)!
 				talkTarget.current ??= targetIds
